@@ -1,0 +1,131 @@
+using System;
+using System.Data;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Text;
+using System.Threading;
+using System.Web;
+using Aspose.Cells;
+using Aspose.Pdf;
+using Aspose.Pdf.Facades;
+using Aspose.Pdf.Forms;
+using GrapeCity.ActiveReports.Export.Pdf.Section;
+namespace GrapeCity.ActiveReports.Samples.Web.Professional
+{
+    public partial class CsvToPdf : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+            DataTable table = new DataTable();
+            table.Columns.Add("Name");
+            table.Columns.Add("Age");
+            table.Rows.Add("John Doe", "45");
+            table.Rows.Add("Jane Doe", "35");
+            table.Rows.Add("Jack Doe", "27");
+
+            var bytes = Encoding.UTF8.GetBytes(dataTableToCSV(table));
+            MemoryStream Stream = new MemoryStream(bytes);
+            MemoryStream csvStream = new MemoryStream();
+            csvStream = csvToPDF(Stream);                      
+
+
+            Response.ContentType = "application/pdf";
+            Response.Clear();   
+            Response.AddHeader("content-disposition", "attachment;filename=csvToPdf.PDF");            
+          
+            // Write the PDF stream to the output stream.
+            Response.BinaryWrite(csvStream.ToArray());
+
+            // Send all buffered content to the client
+            Response.End();
+        }
+
+        public static MemoryStream csvToPDF(MemoryStream stream)
+        {          
+            var stringReverse = Encoding.GetEncoding("iso-8859-1").GetString(stream.ToArray());
+
+            Aspose.Cells.TxtLoadOptions opts = new Aspose.Cells.TxtLoadOptions();
+            opts.Separator = ',';
+
+            byte[] byteArray = Encoding.ASCII.GetBytes(stringReverse);
+            MemoryStream stream2 = new MemoryStream(byteArray);
+
+            //Load the stream into workbook
+            Workbook wb2 = new Workbook(stream2, opts);
+            wb2.Worksheets[0].AutoFitColumns();
+
+            Aspose.Cells.PdfSaveOptions saveOptions = new Aspose.Cells.PdfSaveOptions(Aspose.Cells.SaveFormat.Pdf);
+            saveOptions.AllColumnsInOnePagePerSheet = true;
+
+            //Save the workbook and dispose it.            
+            MemoryStream pdfStream = new MemoryStream();
+            wb2.Save(pdfStream, saveOptions);
+
+            pdfStream.Position = 0;      
+
+            wb2.Dispose();
+
+            return AsposePDF(pdfStream);  
+        }
+        
+        public static string dataTableToCSV(DataTable table)
+        {
+            var result = new StringBuilder();
+            for (int i = 0; i < table.Columns.Count; i++)
+            {
+                result.Append(table.Columns[i].ColumnName);
+                result.Append(i == table.Columns.Count - 1 ? "\n" : ",");
+            }
+
+            foreach (DataRow row in table.Rows)
+            {
+                for (int i = 0; i < table.Columns.Count; i++)
+                {
+                    result.Append(row[i].ToString());
+                    result.Append(i == table.Columns.Count - 1 ? "\n" : ",");
+                }
+            }
+            return result.ToString();
+        }
+
+
+        public static MemoryStream AsposePDF(MemoryStream pdfStream)
+        {
+            Aspose.Pdf.Document exportDoc = new Aspose.Pdf.Document(pdfStream);          
+
+            MemoryStream stream = new MemoryStream();
+
+            using (PdfFileSignature signature = new PdfFileSignature(exportDoc))
+            {
+                PKCS7 pkcs = new PKCS7(HttpContext.Current.Server.MapPath("~") + "\\test-cert-EA.pfx", "2020");// Use PKCS7/PKCS7Detached objects
+                DocMDPSignature docMdpSignature = new DocMDPSignature(pkcs, DocMDPAccessPermissions.NoChanges);
+               
+                System.Drawing.Rectangle rect = new System.Drawing.Rectangle(100, 100, 200, 100);
+                // Set signature appearance
+                signature.SignatureAppearance = HttpContext.Current.Server.MapPath("~") + "\\images\\Logo.png";
+                // Create any of the three signature types
+                signature.Certify(1, "Signature Reason", "Contact", "Location", true, rect, docMdpSignature);
+                // Save output PDF file
+                signature.Save(stream);
+            }
+
+            stream.Seek(0, SeekOrigin.Begin);
+            exportDoc = new Aspose.Pdf.Document(stream);
+
+            PdfFileSecurity fileSecurity = new PdfFileSecurity();
+            fileSecurity.BindPdf(exportDoc);
+            fileSecurity.EncryptFile("user", "owner", DocumentPrivilege.Print, KeySize.x256, Algorithm.AES);
+            fileSecurity.Save(stream);
+
+
+            // Close the stream object
+            pdfStream.Close();
+
+            return stream;
+        }
+
+    }
+
+
+}

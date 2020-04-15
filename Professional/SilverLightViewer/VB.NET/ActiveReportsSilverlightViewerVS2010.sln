@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "SilverlightViewer.WebVS2010", "SilverlightViewer.Web\SilverlightViewer.WebVS2010.vbproj", "{885DFD7B-26A5-4C38-A147-3487CCA2FB6D}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "SilverlightViewer", "SilverlightViewer\SilverlightViewer.vbproj", "{E5803AB7-CE05-4DC2-9DDD-58251572D160}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{885DFD7B-26A5-4C38-A147-3487CCA2FB6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{885DFD7B-26A5-4C38-A147-3487CCA2FB6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{885DFD7B-26A5-4C38-A147-3487CCA2FB6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{885DFD7B-26A5-4C38-A147-3487CCA2FB6D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5803AB7-CE05-4DC2-9DDD-58251572D160}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5803AB7-CE05-4DC2-9DDD-58251572D160}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5803AB7-CE05-4DC2-9DDD-58251572D160}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5803AB7-CE05-4DC2-9DDD-58251572D160}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

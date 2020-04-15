@@ -1,0 +1,366 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A6BC7E13-AE79-4DA5-ACB5-98169228DE60}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>GrapeCity.ActiveReports.Samples.ReportsGallery.ReportsForm</StartupObject>
+    <RootNamespace>GrapeCity.ActiveReports.Samples.ReportsGallery</RootNamespace>
+    <AssemblyName>ReportsGallery</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>ReportsGallery.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>ReportsGallery.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="GrapeCity.ActiveReports.Chart.v11">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="GrapeCity.ActiveReports.Dashboard.v11">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="GrapeCity.ActiveReports.Design.Win.v11">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="GrapeCity.ActiveReports.Diagnostics.v11">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="GrapeCity.ActiveReports.Document.v11">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="GrapeCity.ActiveReports.Export.Pdf.v11">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="GrapeCity.ActiveReports.Extensibility.v11">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="GrapeCity.ActiveReports.Viewer.Win.v11">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="GrapeCity.ActiveReports.v11">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>4.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>4.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>4.5</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="ReportsForm.designer.vb">
+      <DependentUpon>ReportsForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ReportsForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\licenses.licx" />
+    <EmbeddedResource Include="ReportsForm.resx">
+      <DependentUpon>ReportsForm.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Settings.settings">
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="ReportsGallery.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\Reports\RDL Report\Others\AnnualPortfolioChart.rdlx">
+      <Link>Reports\RDL Report\Others\AnnualPortfolioChart.rdlx</Link>
+    </None>
+    <None Include="..\Reports\Page Report\Other\MyOrdersReport.rdlx">
+      <Link>Reports\Page Report\Other\MyOrdersReport.rdlx</Link>
+    </None>
+    <None Include="..\Reports\Page Report\Other\ResourceConsumptionByYear.rdlx">
+      <Link>Reports\Page Report\Other\ResourceConsumptionByYear.rdlx</Link>
+    </None>
+    <None Include="..\Reports\Page Report\DrillDown\AllCustomers.rdlx">
+      <Link>Reports\Page Report\DrillDown\AllCustomers.rdlx</Link>
+    </None>
+    <None Include="..\Reports\Page Report\DrillDown\CustomerDetails.rdlx">
+      <Link>Reports\Page Report\DrillDown\CustomerDetails.rdlx</Link>
+    </None>
+    <None Include="..\Reports\Page Report\DrillDown\OrderDetails.rdlx">
+      <Link>Reports\Page Report\DrillDown\OrderDetails.rdlx</Link>
+    </None>
+    <None Include="..\Reports\Page Report\Invoice\BillingInvoice.rdlx">
+      <Link>Reports\Page Report\Invoice\BillingInvoice.rdlx</Link>
+    </None>
+    <None Include="..\Reports\Page Report\Invoice\Invoice_Grouped.rdlx">
+      <Link>Reports\Page Report\Invoice\Invoice_Grouped.rdlx</Link>
+    </None>
+    <None Include="..\Reports\Page Report\Invoice\Invoice_Parameters.rdlx">
+      <Link>Reports\Page Report\Invoice\BillingInvoice.rdlx</Link>
+    </None>
+    <None Include="..\Reports\Page Report\Invoice\Invoice1.rdlx">
+      <Link>Reports\Page Report\Invoice\Invoice1.rdlx</Link>
+    </None>
+    <None Include="..\Reports\Page Report\Invoice\Invoice2.rdlx">
+      <Link>Reports\Page Report\Invoice\Invoice2.rdlx</Link>
+    </None>
+    <None Include="..\Reports\Page Report\Other\BarCode.rdlx">
+      <Link>Reports\Page Report\Other\BarCode.rdlx</Link>
+    </None>
+    <None Include="..\Reports\Page Report\Other\Catalog.rdlx">
+      <Link>Reports\Page Report\Other\Catalog.rdlx</Link>
+    </None>
+    <None Include="..\Reports\Page Report\Other\CellMerging.rdlx">
+      <Link>Reports\Page Report\Other\CellMerging.rdlx</Link>
+    </None>
+    <None Include="..\Reports\Page Report\Other\DeliverySlip_theme.rdlx">
+      <Link>Reports\Page Report\Other\DeliverySlip_theme.rdlx</Link>
+    </None>
+    <None Include="..\Reports\Page Report\Other\EmployeeSales.rdlx">
+      <Link>Reports\Page Report\Other\EmployeeSales.rdlx</Link>
+    </None>
+    <None Include="..\Reports\Page Report\Other\IRS-W4.rdlx">
+      <Link>Reports\Page Report\Other\IRS-W4.rdlx</Link>
+    </None>
+    <None Include="..\Reports\Page Report\Other\Letter.rdlx">
+      <Link>Reports\Page Report\Other\Letter.rdlx</Link>
+    </None>
+    <None Include="..\Reports\Page Report\Other\TablixSample.rdlx">
+      <Link>Reports\Page Report\Other\TablixSample.rdlx</Link>
+    </None>
+    <None Include="..\Reports\Page Report\Other\PurchaseReport.rdlx">
+      <Link>Reports\Page Report\Other\PurchaseReport.rdlx</Link>
+    </None>
+    <None Include="..\Reports\Page Report\Other\ReelsTablix.rdlx">
+      <Link>Reports\Page Report\Other\ReelsTablix.rdlx</Link>
+    </None>
+    <None Include="..\Reports\Page Report\Other\SalesReport.rdlx">
+      <Link>Reports\Page Report\Other\SalesReport.rdlx</Link>
+    </None>
+    <None Include="..\Reports\Page Report\Other\TackSeal.rdlx">
+      <Link>Reports\Page Report\Other\TackSeal.rdlx</Link>
+    </None>
+    <None Include="..\Reports\Page Report\Other\CompositeChart.rdlx">
+    	<Link>Reports\Page Report\Other\CompositeChart.rdlx</Link>
+    </None>
+    <None Include="..\Reports\Section Report\BarCode.rpx">
+      <Link>Reports\Section Report\BarCode.rpx</Link>
+    </None>
+    <None Include="..\Reports\Section Report\Invoice1.rpx">
+      <Link>Reports\Section Report\Invoice1.rpx</Link>
+    </None>
+    <None Include="..\Reports\Section Report\Invoice2.rpx">
+      <Link>Reports\Section Report\Invoice2.rpx</Link>
+    </None>
+      <None Include="..\Reports\Section Report\LabelReport.rpx">
+      <Link>Reports\Section Report\LabelReport.rpx</Link>
+    </None>
+    <None Include="..\Reports\Section Report\PurchaseOrder.rpx">
+      <Link>Reports\Section Report\PurchaseOrder.rpx</Link>
+    </None>
+    <None Include="..\Reports\Section Report\Schedule.rpx">
+      <Link>Reports\Section Report\Schedule.rpx</Link>
+    </None>
+    <None Include="..\Reports\Section Report\UnderlayNext.rpx">
+      <Link>Reports\Section Report\UnderlayNext.rpx</Link>
+    </None>
+    <None Include="..\Reports\Section Report\PaymentSlip.rpx">
+      <Link>Reports\Section Report\PaymentSlip.rpx</Link>
+    </None>
+    <None Include="..\Reports\RDL Report\Calendar\Events.rdlx">
+      <Link>Reports\RDL Report\Calendar\Events.rdlx</Link>
+    </None>
+    <None Include="..\Reports\RDL Report\Calendar\EventTypes.rdlx">
+      <Link>Reports\RDL Report\Calendar\EventTypes.rdlx</Link>
+    </None>
+    <None Include="..\Reports\RDL Report\Calendar\Vacations.rdlx">
+      <Link>Reports\RDL Report\Calendar\Vacations.rdlx</Link>
+    </None>
+    <None Include="..\Reports\RDL Report\DashBoard\CallCenterDashboard.rdlx">
+      <Link>Reports\RDL Report\DashBoard\CallCenterDashboard.rdlx</Link>
+    </None>
+    <None Include="..\Reports\RDL Report\DashBoard\MarketDashboard.rdlx">
+      <Link>Reports\RDL Report\DashBoard\MarketDashboard.rdlx</Link>
+    </None>
+    <None Include="..\Reports\RDL Report\DashBoard\TeamList.rdlx">
+      <Link>Reports\RDL Report\DashBoard\TeamList.rdlx</Link>
+    </None>
+    <None Include="..\Reports\RDL Report\DashBoard\TeamStatisticsDashboard.rdlx">
+      <Link>Reports\RDL Report\DashBoard\TeamStatisticsDashboard.rdlx</Link>
+    </None>
+    <None Include="..\Reports\RDL Report\FactBook\CountryFacts.rdlx">
+      <Link>Reports\RDL Report\FactBook\CountryFacts.rdlx</Link>
+    </None>
+    <None Include="..\Reports\RDL Report\FactBook\LifeExpectancyByGdpAndMedianAge.rdlx">
+      <Link>Reports\RDL Report\FactBook\LifeExpectancyByGdpAndMedianAge.rdlx</Link>
+    </None>
+    <None Include="..\Reports\RDL Report\FactBook\Top10CountriesByGDP.rdlx">
+      <Link>Reports\RDL Report\FactBook\Top10CountriesByGDP.rdlx</Link>
+    </None>
+    <None Include="..\Reports\RDL Report\Reels\CustomerMailingList.rdlx">
+      <Link>Reports\RDL Report\Reels\CustomerMailingList.rdlx</Link>
+    </None>
+    <None Include="..\Reports\RDL Report\Reels\CustomerOrders.rdlx">
+      <Link>Reports\RDL Report\Reels\CustomerOrders.rdlx</Link>
+    </None>
+    <None Include="..\Reports\RDL Report\Reels\CustomerOrdersCoupon.rdlx">
+      <Link>Reports\RDL Report\Reels\CustomerOrdersCoupon.rdlx</Link>
+    </None>
+    <None Include="..\Reports\RDL Report\Reels\DistrictReport.rdlx">
+      <Link>Reports\RDL Report\Reels\DistrictReport.rdlx</Link>
+    </None>
+    <None Include="..\Reports\RDL Report\Reels\DistrictSales.rdlx">
+      <Link>Reports\RDL Report\Reels\DistrictSales.rdlx</Link>
+    </None>
+    <None Include="..\Reports\RDL Report\Reels\Filmography.rdlx">
+      <Link>Reports\RDL Report\Reels\Filmography.rdlx</Link>
+    </None>
+    <None Include="..\Reports\RDL Report\Reels\GenreSales.rdlx">
+      <Link>Reports\RDL Report\Reels\GenreSales.rdlx</Link>
+    </None>
+    <None Include="..\Reports\RDL Report\Reels\GenreStatistics.rdlx">
+      <Link>Reports\RDL Report\Reels\GenreStatistics.rdlx</Link>
+    </None>
+    <None Include="..\Reports\RDL Report\Reels\MonthlySalesReport.rdlx">
+      <Link>Reports\RDL Report\Reels\MonthlySalesReport.rdlx</Link>
+    </None>
+    <None Include="..\Reports\RDL Report\Reels\MovieCatalog.rdlx">
+      <Link>Reports\RDL Report\Reels\MovieCatalog.rdlx</Link>
+    </None>
+    <None Include="..\Reports\RDL Report\Reels\MovieReport.rdlx">
+      <Link>Reports\RDL Report\Reels\MovieReport.rdlx</Link>
+    </None>
+    <None Include="..\Reports\RDL Report\Reels\ReelsConfidential.rdlx-master">
+      <Link>Reports\RDL Report\Reels\ReelsConfidential.rdlx-master</Link>
+    </None>
+    <None Include="..\Reports\RDL Report\Reels\RegionPerformance.rdlx">
+      <Link>Reports\RDL Report\Reels\RegionPerformance.rdlx</Link>
+    </None>
+    <None Include="..\Reports\RDL Report\Reels\ReorderList.rdlx">
+      <Link>Reports\RDL Report\Reels\ReorderList.rdlx</Link>
+    </None>
+    <None Include="..\Reports\RDL Report\Reels\SalesByMediaType.rdlx">
+      <Link>Reports\RDL Report\Reels\SalesByMediaType.rdlx</Link>
+    </None>
+    <None Include="..\Reports\RDL Report\Reels\SalesByRegion.rdlx">
+      <Link>Reports\RDL Report\Reels\SalesByRegion.rdlx</Link>
+    </None>
+    <None Include="..\Reports\RDL Report\Reels\SalesReceipt.rdlx">
+      <Link>Reports\RDL Report\Reels\SalesReceipt.rdlx</Link>
+    </None>
+    <None Include="..\Reports\RDL Report\Reels\SalesReport.rdlx">
+      <Link>Reports\RDL Report\Reels\SalesReport.rdlx</Link>
+    </None>
+    <None Include="..\Reports\RDL Report\Reels\StorePerformance.rdlx">
+      <Link>Reports\RDL Report\Reels\StorePerformance.rdlx</Link>
+    </None>
+    <None Include="..\Reports\RDL Report\Reels\StoreReport.rdlx">
+      <Link>Reports\RDL Report\Reels\StoreReport.rdlx</Link>
+    </None>
+    <None Include="..\Reports\RDL Report\Reels\TopPerformers.rdlx">
+      <Link>Reports\RDL Report\Reels\TopPerformers.rdlx</Link>
+    </None>
+<None Include="..\Reports\RDL Report\DashBoard\SalesDashboard.rdlx">
+      <Link>Reports\RDL Report\DashBoard\SalesDashboard.rdlx</Link>
+    </None>
+<None Include="..\Reports\RDL Report\Others\Seiseki_Main.rdlx">
+      <Link>Reports\RDL Report\Others\Seiseki_Main.rdlx</Link>
+    </None>
+<None Include="..\Reports\RDL Report\Others\Seiseki_Sub.rdlx">
+      <Link>Reports\RDL Report\Others\Seiseki_Sub.rdlx</Link>
+    </None>
+    <None Include="..\Reports\RDL Report\Others\FinancialStatement.rdlx">
+      <Link>Reports\RDL Report\Others\FinancialStatement.rdlx</Link>
+    </None>
+    <None Include="..\Reports\RDL Report\Others\PerformanceEvaluationSheetOfExecutives.rdlx">
+      <Link>Reports\RDL Report\Others\PerformanceEvaluationSheetOfExecutives.rdlx</Link>
+    </None>
+    <None Include="..\Reports\RDL Report\Others\PerformanceReportOfUniversityGroup.rdlx">
+      <Link>Reports\RDL Report\Others\PerformanceReportOfUniversityGroup.rdlx</Link>
+    </None>
+    <None Include="..\Reports\RDL Report\Others\SurveyOfFinancialExpensesOnEducation.rdlx">
+      <Link>Reports\RDL Report\Others\SurveyOfFinancialExpensesOnEducation.rdlx</Link>
+    </None>
+    <None Include="V4.5\App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arLogo_32.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

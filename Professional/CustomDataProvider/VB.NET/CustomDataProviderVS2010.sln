@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "CustomDataProviderUITestVS2010", "CustomDataProviderUITest\CustomDataProviderUITestVS2010.vbproj", "{82592E67-1B68-48A3-82DA-3C22E21F4927}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "CustomDataProviderUIVS2010", "CustomDataProviderUI\CustomDataProviderUIVS2010.vbproj", "{7D70C86A-1CB5-4F4B-B403-AC4FF60532CD}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "CustomDataProviderVS2010", "CustomDataProvider\CustomDataProviderVS2010.vbproj", "{EBB36950-4C3B-4284-BCE8-4AA0EF6FADEF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{82592E67-1B68-48A3-82DA-3C22E21F4927}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82592E67-1B68-48A3-82DA-3C22E21F4927}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82592E67-1B68-48A3-82DA-3C22E21F4927}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82592E67-1B68-48A3-82DA-3C22E21F4927}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D70C86A-1CB5-4F4B-B403-AC4FF60532CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D70C86A-1CB5-4F4B-B403-AC4FF60532CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D70C86A-1CB5-4F4B-B403-AC4FF60532CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D70C86A-1CB5-4F4B-B403-AC4FF60532CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBB36950-4C3B-4284-BCE8-4AA0EF6FADEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBB36950-4C3B-4284-BCE8-4AA0EF6FADEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBB36950-4C3B-4284-BCE8-4AA0EF6FADEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBB36950-4C3B-4284-BCE8-4AA0EF6FADEF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

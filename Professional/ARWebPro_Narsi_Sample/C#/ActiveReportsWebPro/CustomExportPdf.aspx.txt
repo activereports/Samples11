@@ -1,0 +1,85 @@
+using System;
+using System.Drawing;
+using System.IO;
+using System.Web;
+using Aspose.Pdf;
+using Aspose.Pdf.Facades;
+using Aspose.Pdf.Forms;
+using GrapeCity.ActiveReports.Export.Pdf.Section;
+namespace GrapeCity.ActiveReports.Samples.Web.Professional
+{
+    public partial class CustomExportPdf : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            SectionReport rpt = new SectionReport();
+            System.Xml.XmlTextReader xtr = new System.Xml.XmlTextReader(Server.MapPath("~") + @"\RpxReports\Invoice.rpx");
+            rpt.LoadLayout(xtr);
+            xtr.Close();
+            try
+            {
+                rpt.Run(false);
+            }
+            catch (ReportException eRunReport)
+            {               
+                Response.Clear();
+                Response.Write("<h1>Error running report:</h1>");
+                Response.Write(eRunReport.ToString());
+                return;
+            }
+           
+            Response.ContentType = "application/pdf";
+            Response.Clear();   
+            Response.AddHeader("content-disposition", "attachment;filename=MyPDF.PDF");
+          
+            MemoryStream pdfStream = new MemoryStream();
+
+            using (PdfExport pdf = new PdfExport())
+            {    
+                pdf.ImageQuality = ImageQuality.Highest;
+                pdf.ImageResolution = 300;
+                pdf.Export(rpt.Document, pdfStream);
+            }      
+
+            Response.ContentType = "application/pdf";
+            Response.Clear();
+            Response.AddHeader("content-disposition", "attachment;filename=MyPDF.PDF");
+            AsposePDF(pdfStream).WriteTo(Response.OutputStream);
+            Response.End();
+
+        }
+
+        public MemoryStream  AsposePDF(MemoryStream pdfStream)
+        {
+            Aspose.Pdf.Document exportDoc = new Aspose.Pdf.Document(pdfStream);            
+
+            MemoryStream stream = new MemoryStream();
+            using (PdfFileSignature signature = new PdfFileSignature(exportDoc))
+            {
+                PKCS7 pkcs = new PKCS7(HttpContext.Current.Server.MapPath("~") + "\\test-cert-EA.pfx", "2020");// Use PKCS7/PKCS7Detached objects
+                DocMDPSignature docMdpSignature = new DocMDPSignature(pkcs, DocMDPAccessPermissions.NoChanges);
+                System.Drawing.Rectangle rect = new System.Drawing.Rectangle(100, 100, 200, 100);
+                // Set signature appearance
+                signature.SignatureAppearance = HttpContext.Current.Server.MapPath("~") + "\\images\\Logo.png";
+                // Create any of the three signature types
+                signature.Certify(1, "Signature Reason", "Contact", "Location", true, rect, docMdpSignature);
+                // Save output PDF file
+                signature.Save(stream);
+            }
+            stream.Seek(0, SeekOrigin.Begin);
+            exportDoc = new Aspose.Pdf.Document(stream);
+
+            PdfFileSecurity fileSecurity = new PdfFileSecurity();
+            fileSecurity.BindPdf(exportDoc);
+            fileSecurity.EncryptFile("user", "owner", DocumentPrivilege.Print, KeySize.x256, Algorithm.AES);            
+            fileSecurity.Save(stream);        
+
+            // Close the stream object
+            pdfStream.Close();
+
+            return stream;          
+        }
+
+        
+    }
+}

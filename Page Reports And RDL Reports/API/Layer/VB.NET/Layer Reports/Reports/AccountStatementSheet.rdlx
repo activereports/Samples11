@@ -1,0 +1,423 @@
+﻿<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition">
+	<Body>
+		<Height>11in</Height>
+		<ReportItems>
+			<FixedPage Name="FixedPage1">
+				<Pages>
+					<Page>
+						<ReportItems>
+							<Image Name="imgLogo">
+								<Height>1.25in</Height>
+								<Left>1.875in</Left>
+								<Sizing>Fit</Sizing>
+								<Source>Embedded</Source>
+								<Value>logo_ar_report</Value>
+								<Width>2.625in</Width>
+								<ZIndex>1</ZIndex>
+								<dd:LayerName xmlns:dd="http://schemas.datadynamics.com/reporting/2005/02/reportdefinition">Layer1</dd:LayerName>
+							</Image>
+							<OverflowPlaceHolder Name="OverflowPlaceHolder">
+								<Height>3.5in</Height>
+								<Left>0.5in</Left>
+								<Top>5in</Top>
+								<Width>5.965041in</Width>
+								<dd:LayerName xmlns:dd="http://schemas.datadynamics.com/reporting/2005/02/reportdefinition">Layer3</dd:LayerName>
+							</OverflowPlaceHolder>
+							<Table Name="tblTransactions">
+								<DataSetName>AccountDetails</DataSetName>
+								<Header>
+									<TableRows>
+										<TableRow>
+											<Height>0.25in</Height>
+											<TableCells>
+												<TableCell>
+													<ReportItems>
+														<Textbox Name="lblTDate">
+															<DataElementName>TextBox1</DataElementName>
+															<Style>
+																<BackgroundColor>Silver</BackgroundColor>
+																<FontFamily>Segoe UI Light</FontFamily>
+																<FontSize>12pt</FontSize>
+																<FontWeight>600</FontWeight>
+																<PaddingBottom>2pt</PaddingBottom>
+																<PaddingLeft>2pt</PaddingLeft>
+																<PaddingRight>2pt</PaddingRight>
+																<PaddingTop>2pt</PaddingTop>
+															</Style>
+															<Value>Transaction Date</Value>
+															<dd:LayerName xmlns:dd="http://schemas.datadynamics.com/reporting/2005/02/reportdefinition">Layer3</dd:LayerName>
+														</Textbox>
+													</ReportItems>
+												</TableCell>
+												<TableCell>
+													<ReportItems>
+														<Textbox Name="lblDetails">
+															<DataElementName>TextBox10</DataElementName>
+															<Style>
+																<BackgroundColor>Silver</BackgroundColor>
+																<FontFamily>Segoe UI Light</FontFamily>
+																<FontSize>12pt</FontSize>
+																<FontWeight>600</FontWeight>
+																<PaddingBottom>2pt</PaddingBottom>
+																<PaddingLeft>2pt</PaddingLeft>
+																<PaddingRight>2pt</PaddingRight>
+																<PaddingTop>2pt</PaddingTop>
+															</Style>
+															<Value>Note/Details</Value>
+															<dd:LayerName xmlns:dd="http://schemas.datadynamics.com/reporting/2005/02/reportdefinition">Layer3</dd:LayerName>
+														</Textbox>
+													</ReportItems>
+												</TableCell>
+												<TableCell>
+													<ReportItems>
+														<Textbox Name="lblType">
+															<DataElementName>TextBox2</DataElementName>
+															<Style>
+																<BackgroundColor>Silver</BackgroundColor>
+																<FontFamily>Segoe UI Light</FontFamily>
+																<FontSize>12pt</FontSize>
+																<FontWeight>600</FontWeight>
+																<PaddingBottom>2pt</PaddingBottom>
+																<PaddingLeft>2pt</PaddingLeft>
+																<PaddingRight>2pt</PaddingRight>
+																<PaddingTop>2pt</PaddingTop>
+															</Style>
+															<Value>Credit/Debit</Value>
+															<dd:LayerName xmlns:dd="http://schemas.datadynamics.com/reporting/2005/02/reportdefinition">Layer3</dd:LayerName>
+														</Textbox>
+													</ReportItems>
+												</TableCell>
+												<TableCell>
+													<ReportItems>
+														<Textbox Name="lblAmt">
+															<DataElementName>TextBox13</DataElementName>
+															<Style>
+																<BackgroundColor>Silver</BackgroundColor>
+																<FontFamily>Segoe UI Light</FontFamily>
+																<FontSize>12pt</FontSize>
+																<FontWeight>600</FontWeight>
+																<PaddingBottom>2pt</PaddingBottom>
+																<PaddingLeft>2pt</PaddingLeft>
+																<PaddingRight>2pt</PaddingRight>
+																<PaddingTop>2pt</PaddingTop>
+															</Style>
+															<Value>Amount</Value>
+															<dd:LayerName xmlns:dd="http://schemas.datadynamics.com/reporting/2005/02/reportdefinition">Layer3</dd:LayerName>
+														</Textbox>
+													</ReportItems>
+												</TableCell>
+												<TableCell>
+													<ReportItems>
+														<Textbox Name="lblBalance">
+															<DataElementName>TextBox3</DataElementName>
+															<Style>
+																<BackgroundColor>Silver</BackgroundColor>
+																<FontFamily>Segoe UI Light</FontFamily>
+																<FontSize>12pt</FontSize>
+																<FontWeight>600</FontWeight>
+																<PaddingBottom>2pt</PaddingBottom>
+																<PaddingLeft>2pt</PaddingLeft>
+																<PaddingRight>2pt</PaddingRight>
+																<PaddingTop>2pt</PaddingTop>
+															</Style>
+															<Value>Balance</Value>
+															<dd:LayerName xmlns:dd="http://schemas.datadynamics.com/reporting/2005/02/reportdefinition">Layer3</dd:LayerName>
+														</Textbox>
+													</ReportItems>
+												</TableCell>
+											</TableCells>
+										</TableRow>
+									</TableRows>
+								</Header>
+								<Details>
+									<TableRows>
+										<TableRow>
+											<Height>0.25in</Height>
+											<TableCells>
+												<TableCell>
+													<ReportItems>
+														<Textbox Name="tbDate">
+															<DataElementName>TextBox4</DataElementName>
+															<Style>
+																<BackgroundColor>=IIF(RowNumber() Mod 2=0, "White", "LightCyan")</BackgroundColor>
+																<FontFamily>Segoe UI Light</FontFamily>
+																<FontSize>11pt</FontSize>
+																<PaddingBottom>2pt</PaddingBottom>
+																<PaddingLeft>2pt</PaddingLeft>
+																<PaddingRight>2pt</PaddingRight>
+																<PaddingTop>2pt</PaddingTop>
+															</Style>
+															<Value>=Fields!TransactionDate.Value</Value>
+															<dd:LayerName xmlns:dd="http://schemas.datadynamics.com/reporting/2005/02/reportdefinition">Layer3</dd:LayerName>
+														</Textbox>
+													</ReportItems>
+												</TableCell>
+												<TableCell>
+													<ReportItems>
+														<Textbox Name="tbDetails">
+															<DataElementName>TextBox11</DataElementName>
+															<Style>
+																<BackgroundColor>=IIF(RowNumber() Mod 2=0, "White", "LightCyan")</BackgroundColor>
+																<FontFamily>Segoe UI Light</FontFamily>
+																<PaddingBottom>2pt</PaddingBottom>
+																<PaddingLeft>2pt</PaddingLeft>
+																<PaddingRight>2pt</PaddingRight>
+																<PaddingTop>2pt</PaddingTop>
+															</Style>
+															<Value>=Fields!TransactionDetails.Value</Value>
+															<dd:LayerName xmlns:dd="http://schemas.datadynamics.com/reporting/2005/02/reportdefinition">Layer3</dd:LayerName>
+														</Textbox>
+													</ReportItems>
+												</TableCell>
+												<TableCell>
+													<ReportItems>
+														<Textbox Name="tbType">
+															<DataElementName>TextBox5</DataElementName>
+															<Style>
+																<BackgroundColor>=IIF(RowNumber() Mod 2=0, "White", "LightCyan")</BackgroundColor>
+																<FontFamily>Segoe UI Light</FontFamily>
+																<PaddingBottom>2pt</PaddingBottom>
+																<PaddingLeft>2pt</PaddingLeft>
+																<PaddingRight>2pt</PaddingRight>
+																<PaddingTop>2pt</PaddingTop>
+															</Style>
+															<Value>=Fields!TransactionType.Value</Value>
+															<dd:LayerName xmlns:dd="http://schemas.datadynamics.com/reporting/2005/02/reportdefinition">Layer3</dd:LayerName>
+														</Textbox>
+													</ReportItems>
+												</TableCell>
+												<TableCell>
+													<ReportItems>
+														<Textbox Name="tbAmt">
+															<DataElementName>TextBox14</DataElementName>
+															<Style>
+																<BackgroundColor>=IIF(RowNumber() Mod 2=0, "White", "LightCyan")</BackgroundColor>
+																<FontFamily>Segoe UI Light</FontFamily>
+																<Format>c</Format>
+																<PaddingBottom>2pt</PaddingBottom>
+																<PaddingLeft>2pt</PaddingLeft>
+																<PaddingRight>2pt</PaddingRight>
+																<PaddingTop>2pt</PaddingTop>
+															</Style>
+															<Value>=Fields!Amount.Value</Value>
+															<dd:LayerName xmlns:dd="http://schemas.datadynamics.com/reporting/2005/02/reportdefinition">Layer3</dd:LayerName>
+														</Textbox>
+													</ReportItems>
+												</TableCell>
+												<TableCell>
+													<ReportItems>
+														<Textbox Name="tbBalance">
+															<DataElementName>TextBox6</DataElementName>
+															<Style>
+																<BackgroundColor>=IIF(RowNumber() Mod 2=0, "White", "LightCyan")</BackgroundColor>
+																<FontFamily>Segoe UI Light</FontFamily>
+																<Format>c</Format>
+																<PaddingBottom>2pt</PaddingBottom>
+																<PaddingLeft>2pt</PaddingLeft>
+																<PaddingRight>2pt</PaddingRight>
+																<PaddingTop>2pt</PaddingTop>
+															</Style>
+															<ToggleImage>
+																<InitialState>False</InitialState>
+															</ToggleImage>
+															<Value>=Fields!Balance.Value</Value>
+															<dd:LayerName xmlns:dd="http://schemas.datadynamics.com/reporting/2005/02/reportdefinition">Layer3</dd:LayerName>
+														</Textbox>
+													</ReportItems>
+												</TableCell>
+											</TableCells>
+										</TableRow>
+									</TableRows>
+								</Details>
+								<Height>0.5in</Height>
+								<Left>0.5in</Left>
+								<dd:FixedHeight xmlns:dd="http://schemas.datadynamics.com/reporting/2005/02/reportdefinition">0.75in</dd:FixedHeight>
+								<dd:FixedWidth xmlns:dd="http://schemas.datadynamics.com/reporting/2005/02/reportdefinition">5.715041in</dd:FixedWidth>
+								<dd:OverflowName xmlns:dd="http://schemas.datadynamics.com/reporting/2005/02/reportdefinition">OverflowPlaceHolder</dd:OverflowName>
+								<Style>
+									<BorderColor>
+										<Default>Silver</Default>
+									</BorderColor>
+								</Style>
+								<TableColumns>
+									<TableColumn>
+										<Width>1.31in</Width>
+									</TableColumn>
+									<TableColumn>
+										<Width>1.5in</Width>
+									</TableColumn>
+									<TableColumn>
+										<Width>0.968347in</Width>
+									</TableColumn>
+									<TableColumn>
+										<Width>0.968347in</Width>
+									</TableColumn>
+									<TableColumn>
+										<Width>0.968347in</Width>
+									</TableColumn>
+								</TableColumns>
+								<Top>4.25in</Top>
+								<Width>5.715041in</Width>
+								<ZIndex>2</ZIndex>
+								<dd:LayerName xmlns:dd="http://schemas.datadynamics.com/reporting/2005/02/reportdefinition">Layer3</dd:LayerName>
+							</Table>
+							<CustomReportItem Name="headerFormattedText">
+								<Type>FormattedText</Type>
+								<Top>1.375in</Top>
+								<Left>1.625in</Left>
+								<Width>4.125in</Width>
+								<Height>0.5in</Height>
+								<ZIndex>10</ZIndex>
+								<CustomProperties>
+									<CustomProperty>
+										<Name>Month</Name>
+										<Value>=Fields!StatementMonth.Value</Value>
+									</CustomProperty>
+									<CustomProperty>
+										<Name>Year</Name>
+										<Value>=Fields!StatementYear.Value</Value>
+									</CustomProperty>
+									<CustomProperty>
+										<Name>Html</Name>
+										<Value>&lt;html&gt;  &lt;head&gt;
+    &lt;style type="text/css"&gt;
+      body { font-family:Arial; font-size: 13pt;font-weight:600; }
+    &lt;/style&gt;
+  &lt;/head&gt;&lt;body&gt;&lt;p&gt;Account Statement for &lt;%Month/%&gt; &lt;%Year/%&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</Value>
+									</CustomProperty>
+								</CustomProperties>
+								<dd:LayerName xmlns:dd="http://schemas.datadynamics.com/reporting/2005/02/reportdefinition">Layer2</dd:LayerName>
+							</CustomReportItem>
+							<CustomReportItem Name="summaryFormattedText">
+								<Type>FormattedText</Type>
+								<Top>2in</Top>
+								<Left>0.5in</Left>
+								<Width>5.25in</Width>
+								<Height>0.5in</Height>
+								<ZIndex>11</ZIndex>
+								<CustomProperties>
+									<CustomProperty>
+										<Name>AccountNumber</Name>
+										<Value>=Fields!AccountNumber.Value</Value>
+									</CustomProperty>
+									<CustomProperty>
+										<Name>AccountHolder</Name>
+										<Value>=Fields!Name.Value</Value>
+									</CustomProperty>
+									<CustomProperty>
+										<Name>StartDate</Name>
+										<Value>=Fields!TransactionDate.Value</Value>
+									</CustomProperty>
+									<CustomProperty>
+										<Name>EndDate</Name>
+										<Value>=Last( Fields!TransactionDate.Value )</Value>
+									</CustomProperty>
+									<CustomProperty>
+										<Name>Html</Name>
+										<Value>&lt;html&gt;  &lt;head&gt;
+    &lt;style type="text/css"&gt;
+      body { font-family: Arial; font-size: 12pt;font-weight:normal }
+    &lt;/style&gt;
+  &lt;/head&gt;&lt;body&gt;&lt;p&gt;This account statement is for account number &lt;%AccountNumber/%&gt; for account holder &lt;%AccountHolder/%&gt;. This statement includes all transaction from &lt;%StartDate/%&gt; to &lt;%EndDate/%&gt; .&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt; In case of any questions regarding this document please contact your nearest branch.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</Value>
+									</CustomProperty>
+								</CustomProperties>
+								<dd:LayerName xmlns:dd="http://schemas.datadynamics.com/reporting/2005/02/reportdefinition">Layer2</dd:LayerName>
+							</CustomReportItem>
+							<Textbox Name="txtFooter">
+								<DataElementName>TextBox16</DataElementName>
+								<Height>0.25in</Height>
+								<Left>0.5in</Left>
+								<Style>
+									<FontFamily>Segoe UI Light</FontFamily>
+									<FontSize>12pt</FontSize>
+									<FontWeight>600</FontWeight>
+									<PaddingBottom>2pt</PaddingBottom>
+									<PaddingLeft>2pt</PaddingLeft>
+									<PaddingRight>2pt</PaddingRight>
+									<PaddingTop>2pt</PaddingTop>
+								</Style>
+								<Top>8.625in</Top>
+								<Value>Private &amp; Confidential Information</Value>
+								<Width>2.875in</Width>
+								<ZIndex>12</ZIndex>
+								<dd:LayerName xmlns:dd="http://schemas.datadynamics.com/reporting/2005/02/reportdefinition">Layer1</dd:LayerName>
+							</Textbox>
+						</ReportItems>
+					</Page>
+				</Pages>
+				<DataSetName>AccountDetails</DataSetName>
+			</FixedPage>
+		</ReportItems>
+	</Body>
+	<BottomMargin>1in</BottomMargin>
+	<LeftMargin>1in</LeftMargin>
+	<PageHeight>11in</PageHeight>
+	<PageWidth>8.5in</PageWidth>
+	<RightMargin>1in</RightMargin>
+	<TopMargin>1in</TopMargin>
+	<Width>8.5in</Width>
+	<EmbeddedImages>
+		<EmbeddedImage Name="logo_ar_report">
+			<ImageData>iVBORw0KGgoAAAANSUhEUgAAAPYAAACOCAYAAAACY/VkAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1ODgyNDRERkUyNzdFNTExOUQyN0NFRURFRjFCODEwQyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDowRTlDNjlFQzc3RTMxMUU1ODY4MkQxMzgzQzAxMUUxOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDowRTlDNjlFQjc3RTMxMUU1ODY4MkQxMzgzQzAxMUUxOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M2IChXaW5kb3dzKSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjU5ODI0NERGRTI3N0U1MTE5RDI3Q0VFREVGMUI4MTBDIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU4ODI0NERGRTI3N0U1MTE5RDI3Q0VFREVGMUI4MTBDIi8+IDwvcmRmOkRlc2NyaXB0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</ImageData>
+			<MIMEType>image/png</MIMEType>
+		</EmbeddedImage>
+	</EmbeddedImages>
+	<DataSources>
+		<DataSource Name="BankStatement">
+			<ConnectionProperties>
+				<ConnectString>XmlData=&lt;CUSTOMERS&gt;&lt;CUSTOMER&gt;&lt;NAME&gt;John Doe&lt;/NAME&gt;                 &lt;MONTH&gt;January&lt;/MONTH&gt;&lt;YEAR&gt;2013&lt;/YEAR&gt; &lt;ACCOUNTNUMBER&gt;1123664652&lt;/ACCOUNTNUMBER&gt;                &lt;TRANSACTIONS&gt;  &lt;TRANSACTION&gt;&lt;TDATE&gt;1/1/2013&lt;/TDATE&gt;&lt;DETAILS&gt;B/F&lt;/DETAILS&gt;&lt;TTYPE&gt;&lt;/TTYPE&gt;&lt;AMOUNT&gt;&lt;/AMOUNT&gt;                        &lt;BALANCE&gt;$5600&lt;/BALANCE&gt;&lt;/TRANSACTION&gt;&lt;TRANSACTION&gt;&lt;TDATE&gt;1/6/2013&lt;/TDATE&gt;&lt;DETAILS&gt;Transfer to 9900908&lt;/DETAILS&gt;&lt;TTYPE&gt;DR&lt;/TTYPE&gt;&lt;AMOUNT&gt;-$1000&lt;/AMOUNT&gt;                        &lt;BALANCE&gt;$4600&lt;/BALANCE&gt;&lt;/TRANSACTION&gt;&lt;TRANSACTION&gt;&lt;TDATE&gt;1/8/2013&lt;/TDATE&gt;&lt;DETAILS&gt;Transfer to 1403932&lt;/DETAILS&gt;&lt;TTYPE&gt;DR&lt;/TTYPE&gt;&lt;AMOUNT&gt;-$500&lt;/AMOUNT&gt;                        &lt;BALANCE&gt;$4100&lt;/BALANCE&gt;&lt;/TRANSACTION&gt;&lt;TRANSACTION&gt;&lt;TDATE&gt;1/10/2013&lt;/TDATE&gt;&lt;DETAILS&gt;IKEA MERCHANT&lt;/DETAILS&gt;&lt;TTYPE&gt;DR&lt;/TTYPE&gt;&lt;AMOUNT&gt;-$100&lt;/AMOUNT&gt;                        &lt;BALANCE&gt;$4000&lt;/BALANCE&gt;&lt;/TRANSACTION&gt;&lt;TRANSACTION&gt;&lt;TDATE&gt;1/12/2013&lt;/TDATE&gt;&lt;DETAILS&gt;Morgan Stanley Dividend&lt;/DETAILS&gt;&lt;TTYPE&gt;CR&lt;/TTYPE&gt;&lt;AMOUNT&gt;$5000&lt;/AMOUNT&gt;                        &lt;BALANCE&gt;$9000&lt;/BALANCE&gt;&lt;/TRANSACTION&gt;&lt;TRANSACTION&gt;&lt;TDATE&gt;1/14/2013&lt;/TDATE&gt;&lt;DETAILS&gt;Transfer from 0920283021&lt;/DETAILS&gt;&lt;TTYPE&gt;CR&lt;/TTYPE&gt;&lt;AMOUNT&gt;$1000&lt;/AMOUNT&gt;                        &lt;BALANCE&gt;$10000&lt;/BALANCE&gt;&lt;/TRANSACTION&gt;&lt;TRANSACTION&gt;&lt;TDATE&gt;1/16/2013&lt;/TDATE&gt;&lt;DETAILS&gt;DTH Recharge&lt;/DETAILS&gt;&lt;TTYPE&gt;DR&lt;/TTYPE&gt;&lt;AMOUNT&gt;-$100&lt;/AMOUNT&gt;                        &lt;BALANCE&gt;$9900&lt;/BALANCE&gt;&lt;/TRANSACTION&gt;&lt;TRANSACTION&gt;&lt;TDATE&gt;1/18/2013&lt;/TDATE&gt;&lt;DETAILS&gt;Lynda.com Subscription&lt;/DETAILS&gt;&lt;TTYPE&gt;DR&lt;/TTYPE&gt;&lt;AMOUNT&gt;-$200&lt;/AMOUNT&gt;                        &lt;BALANCE&gt;$9700&lt;/BALANCE&gt;&lt;/TRANSACTION&gt;&lt;TRANSACTION&gt;&lt;TDATE&gt;1/19/2013&lt;/TDATE&gt;&lt;DETAILS&gt;ATM Withdrawal&lt;/DETAILS&gt;&lt;TTYPE&gt;DR&lt;/TTYPE&gt;&lt;AMOUNT&gt;-$2000&lt;/AMOUNT&gt;                        &lt;BALANCE&gt;$7700&lt;/BALANCE&gt;&lt;/TRANSACTION&gt;&lt;TRANSACTION&gt;&lt;TDATE&gt;1/19/2013&lt;/TDATE&gt;&lt;DETAILS&gt;STARBUCKS Coffe&lt;/DETAILS&gt;&lt;TTYPE&gt;DR&lt;/TTYPE&gt;&lt;AMOUNT&gt;-$50&lt;/AMOUNT&gt;                        &lt;BALANCE&gt;$7650&lt;/BALANCE&gt;&lt;/TRANSACTION&gt;&lt;TRANSACTION&gt;&lt;TDATE&gt;1/19/2013&lt;/TDATE&gt;&lt;DETAILS&gt;KARMA CLOTHING&lt;/DETAILS&gt;&lt;TTYPE&gt;DR&lt;/TTYPE&gt;&lt;AMOUNT&gt;-$650&lt;/AMOUNT&gt;                        &lt;BALANCE&gt;$7000&lt;/BALANCE&gt;&lt;/TRANSACTION&gt;&lt;TRANSACTION&gt;&lt;TDATE&gt;1/22/2013&lt;/TDATE&gt;&lt;DETAILS&gt;EXPEDIA TRAVEL CO&lt;/DETAILS&gt;&lt;TTYPE&gt;DR&lt;/TTYPE&gt;&lt;AMOUNT&gt;-$1000&lt;/AMOUNT&gt;                        &lt;BALANCE&gt;$6000&lt;/BALANCE&gt;&lt;/TRANSACTION&gt;&lt;TRANSACTION&gt;&lt;TDATE&gt;1/26/2013&lt;/TDATE&gt;&lt;DETAILS&gt;JANE DOE CO&lt;/DETAILS&gt;&lt;TTYPE&gt;CR&lt;/TTYPE&gt;&lt;AMOUNT&gt;$10000&lt;/AMOUNT&gt;                        &lt;BALANCE&gt;$16000&lt;/BALANCE&gt;&lt;/TRANSACTION&gt;&lt;TRANSACTION&gt;&lt;TDATE&gt;1/29/2013&lt;/TDATE&gt;&lt;DETAILS&gt;KFC&lt;/DETAILS&gt;&lt;TTYPE&gt;DR&lt;/TTYPE&gt;&lt;AMOUNT&gt;-$300&lt;/AMOUNT&gt;                        &lt;BALANCE&gt;$15700&lt;/BALANCE&gt;&lt;/TRANSACTION&gt;&lt;TRANSACTION&gt;&lt;TDATE&gt;1/31/2013&lt;/TDATE&gt;&lt;DETAILS&gt;TAXI CAB PVT LCC&lt;/DETAILS&gt;&lt;TTYPE&gt;DR&lt;/TTYPE&gt;&lt;AMOUNT&gt;-$700&lt;/AMOUNT&gt;                        &lt;BALANCE&gt;$15000&lt;/BALANCE&gt;&lt;/TRANSACTION&gt;               &lt;/TRANSACTIONS&gt;&lt;/CUSTOMER&gt;&lt;/CUSTOMERS&gt;;</ConnectString>
+				<DataProvider>XML</DataProvider>
+			</ConnectionProperties>
+		</DataSource>
+	</DataSources>
+	<DataSets>
+		<DataSet Name="AccountDetails">
+			<Fields>
+				<Field Name="TransactionDate">
+					<DataField>TDATE</DataField>
+				</Field>
+				<Field Name="Name">
+					<DataField>../../NAME</DataField>
+				</Field>
+				<Field Name="TransactionDetails">
+					<DataField>DETAILS</DataField>
+				</Field>
+				<Field Name="TransactionType">
+					<DataField>TTYPE</DataField>
+				</Field>
+				<Field Name="Amount">
+					<DataField>AMOUNT</DataField>
+				</Field>
+				<Field Name="Balance">
+					<DataField>BALANCE</DataField>
+				</Field>
+				<Field Name="AccountNumber">
+					<DataField>../../ACCOUNTNUMBER</DataField>
+				</Field>
+				<Field Name="StatementMonth">
+					<DataField>../../MONTH</DataField>
+				</Field>
+				<Field Name="StatementYear">
+					<DataField>../../YEAR</DataField>
+				</Field>
+			</Fields>
+			<Query>
+				<CommandText>//TRANSACTION</CommandText>
+				<DataSourceName>BankStatement</DataSourceName>
+			</Query>
+		</DataSet>
+	</DataSets>
+	<dd:Layers xmlns:dd="http://schemas.datadynamics.com/reporting/2005/02/reportdefinition">
+		<dd:Layer>
+			<dd:Name>Layer1</dd:Name>
+			<dd:TargetDevice>Screen</dd:TargetDevice>
+		</dd:Layer>
+		<dd:Layer>
+			<dd:Name>Layer2</dd:Name>
+			<dd:TargetDevice>Screen, Paper</dd:TargetDevice>
+		</dd:Layer>
+		<dd:Layer>
+			<dd:Name>Layer3</dd:Name>
+		</dd:Layer>
+	</dd:Layers>
+</Report>
